@@ -41,17 +41,18 @@
 
 <div class="container">&nbsp;
     {% block content %}{% endblock %}
-    <ul id="myList"></ul>
+    <ul id="myList"></ul>&nbsp;
 
-    <form action="" method="POST" enctype="multipart/form-data" id="add_phrase_form">
-        <label for="q_text">Текст:</label><br>
-        <input type="text" id="q_text" name="q_text" value="text"><br>
+    <form action="{% url 'api_v1:phrase_list' %}" method="POST" enctype="multipart/form-data" id="add_phrase_form">
+        {% csrf_token %}
+        <label for="text">Текст:</label><br>
+        <input type="text" id="text" name="text"><br><br>
 
         <label for="author">Автор:</label><br>
-        <input type="text" id="author" name="author" value="author"><br><br>
+        <input type="text" id="author" name="author"><br><br>
 
         <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email" value="email"><br><br>
+        <input type="text" id="email" name="email"><br><br>
 
         <input type="submit" value="Добавить цитату">
     </form>

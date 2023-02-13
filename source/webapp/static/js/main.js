@@ -4,7 +4,6 @@ function getCookie(name) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
@@ -54,7 +53,8 @@ async function buttonClickGet(event) {
 }
 
 async function buttonClickPost(event) {
-    let text = document.getElementById('q_text');
+    let target = event.currentTarget;
+    let text = document.getElementById('text');
     let author = document.getElementById('author');
     let email = document.getElementById('email');
 
@@ -63,7 +63,6 @@ async function buttonClickPost(event) {
     let body = JSON.stringify({"text": text.value, "author": author.value, "email": email.value});
     try {
         let response = await makeRequest(url, "POST", headers, body);
-        console.log(response);
     } catch (e) {
         console.log(await e.response.json());
     }

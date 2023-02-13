@@ -1,0 +1,122 @@
+[
+{
+    "model": "webapp.phrase",
+    "pk": 2,
+    "fields": {
+        "text": "не жди возможностей! Создавай их сам!",
+        "author": "Chris Grosser",
+        "email": "chris@gmail.ru",
+        "rating": 0,
+        "status": "moderated",
+        "created_at": "2023-02-13T16:43:13.428Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 3,
+    "fields": {
+        "text": "I find that the harder I work, the more luck I seem to have.",
+        "author": "Thomas Jefferson",
+        "email": "thomas_jefferson@yahoo.com",
+        "rating": 0,
+        "status": "new",
+        "created_at": "2023-02-13T16:44:30.749Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 4,
+    "fields": {
+        "text": "Stop chasing the money and start chasing the passion.",
+        "author": "Tony Hsieh",
+        "email": "tony@yahoo.com",
+        "rating": 0,
+        "status": "new",
+        "created_at": "2023-02-13T16:45:48.123Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 5,
+    "fields": {
+        "text": "Success is walking from failure to failure with no loss of enthusiasm.",
+        "author": "Winston Churchill",
+        "email": "churchill@mail.com",
+        "rating": 0,
+        "status": "moderated",
+        "created_at": "2023-02-13T16:46:47.392Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 7,
+    "fields": {
+        "text": "Success is not final, failure is not fatal: it is the courage to continue that counts",
+        "author": "Winston Churchill",
+        "email": "churchill@gmail.com",
+        "rating": 0,
+        "status": "moderated",
+        "created_at": "2023-02-13T16:51:35.400Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 8,
+    "fields": {
+        "text": "Учиться, Учиться и Учиться!",
+        "author": "Ленин",
+        "email": "lenin@mail.ru",
+        "rating": 0,
+        "status": "new",
+        "created_at": "2023-02-13T21:39:01.385Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 9,
+    "fields": {
+        "text": "На самом деле, жизнь проста, но мы настойчиво её усложняем.",
+        "author": "Конфуций",
+        "email": "chinese_wisdom@mail.ru",
+        "rating": 0,
+        "status": "new",
+        "created_at": "2023-02-13T21:43:35.169Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 10,
+    "fields": {
+        "text": "Люди охотно верят тому, чему желают верить.",
+        "author": "Цезарь",
+        "email": "tsezar@mail.ru",
+        "rating": 0,
+        "status": "new",
+        "created_at": "2023-02-13T21:46:44.131Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 11,
+    "fields": {
+        "text": "Пришел, увидел, победил.",
+        "author": "Цезарь",
+        "email": "tsezarr@mail.ru",
+        "rating": 0,
+        "status": "new",
+        "created_at": "2023-02-13T21:51:01.439Z"
+    }
+},
+{
+    "model": "webapp.phrase",
+    "pk": 12,
+    "fields": {
+        "text": "Умом тысячу, а силой победишь одного.",
+        "author": "Народная мудрость",
+        "email": "wisdom@mail.ru",
+        "rating": 0,
+        "status": "new",
+        "created_at": "2023-02-13T22:12:28.344Z"
+    }
+}
+]

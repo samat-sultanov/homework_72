@@ -1,9 +1,8 @@
 from django.shortcuts import get_object_or_404
-from rest_framework.viewsets import ModelViewSet
+from django.urls import reverse
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import BasePermission, SAFE_METHODS, IsAdminUser, AllowAny
-from rest_framework.decorators import action
+from rest_framework.permissions import BasePermission
 
 from webapp.models import Phrase
 from api_v1.serializers import PhraseSerializer, PhraseSerializerUpdate
@@ -22,9 +21,6 @@ class CustomPermission(BasePermission):
         elif request.method == "DELETE" and request.user.has_perm('webapp.delete_phrase'):
             return True
         return False
-
-    def has_object_permission(self, request, view, obj):
-        return obj.user == request.user
 
 
 class PhraseView(APIView):
@@ -56,6 +52,9 @@ class PhraseView(APIView):
             return Response(serializer.data)
         else:
             return Response(serializer.errors, status=400)
+
+    def get_success_url(self):
+        return reverse('webapp:index')
 
     def patch(self, request, *args, **kwargs):
         phrase = get_object_or_404(Phrase, pk=kwargs.get('pk'))
