@@ -1,4 +1,4 @@
-"""phrase URL Configuration
+"""main URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,8 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+api_url = [
+    path('v1/', include('api_v1.urls')),
+]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('', include('webapp.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('api/', include(api_url)),
 ]

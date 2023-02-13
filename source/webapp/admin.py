@@ -1,3 +1,7 @@
 from django.contrib import admin
+from webapp.models import Phrase
 
-# Register your models here.
+
+admin.site.register(Phrase)
+
+
