@@ -1,0 +1,66 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>{% block title %}Цитаты{% endblock %}</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+        <button style="margin:5px;" type="button" class="btn btn-success" id="phrases_list" data-url="{% url 'api_v1:phrase_list' %}">
+            Главная
+        </button>
+        <button style="margin:5px;" type="button" class="btn btn-success" id="add_phrase" data-add-url="{% url 'api_v1:phrase_list' %}">Добавить
+            цитату
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% block nav %}{% endblock %}
+            </ul>
+            {% if request.user.is_authenticated %}
+                <p class="ms-auto text-secondary d-inline-block my-0 py-auto">Привет, {{ request.user.username }}</p>
+                <a class="btn btn-dark ms-2" href="{% url 'accounts:logout' %}">Выйти</a>
+            {% else %}
+                <a class="btn btn-dark ms-auto" href="{% url 'accounts:login' %}">Войти</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="container">&nbsp;
+    {% block content %}{% endblock %}
+    <ul id="myList"></ul>
+
+    <form action="" method="POST" enctype="multipart/form-data" id="add_phrase_form">
+        <label for="q_text">Текст:</label><br>
+        <input type="text" id="q_text" name="q_text" value="text"><br>
+
+        <label for="author">Автор:</label><br>
+        <input type="text" id="author" name="author" value="author"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" value="email"><br><br>
+
+        <input type="submit" value="Добавить цитату">
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
