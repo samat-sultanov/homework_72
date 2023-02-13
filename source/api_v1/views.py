@@ -3,9 +3,18 @@ from django.urls import reverse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import BasePermission
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.http import HttpResponse, HttpResponseNotAllowed
 
 from webapp.models import Phrase
 from api_v1.serializers import PhraseSerializer, PhraseSerializerUpdate
+
+
+@ensure_csrf_cookie
+def get_token_view(request, *args, **kwargs):
+    if request.method == 'GET':
+        return HttpResponse()
+    return HttpResponseNotAllowed('Only GET request are allowed')
 
 
 class CustomPermission(BasePermission):
